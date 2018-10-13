@@ -1,21 +1,21 @@
-import { Line } from './Line';
-import * as vscode from 'vscode';
-import { extendToLength } from './string-utils';
+import * as vscode        from 'vscode'         ;
+import { Line }           from './Line'         ;
+import { extendToLength } from './string-utils' ;
 
 type Range = {
-    range: Array<Array<number>>;
-    alignSpec: string[];
+    range     : Array<Array<number>> ;
+    alignSpec : string[]             ;
 };
 export class Block {
 
-    lines: Line[] = [];
-    target: string[] = [];
+    lines: Line[]    = [] ;
+    target: string[] = [] ;
 
     getGroupsFromRegExp(rgXep: string, alignSpec: string[], lines: Array<Line>) {
-        const regExp = new RegExp(rgXep);
-        let isValid = false;
-        let range: Array<Array<number>> = [];
-        let curRange: Array<number> = [];
+        const regExp                    = new RegExp(rgXep) ;
+        let isValid                     = false             ;
+        let range: Array<Array<number>> = []                ;
+        let curRange: Array<number>     = []                ;
 
         lines.forEach(_ => {
             if (_.processed) return;
@@ -25,8 +25,8 @@ export class Block {
                 if (isValid) {
                     curRange.push(_.number);
                 } else {
-                    isValid = true;
-                    curRange = [_.number];
+                    isValid  = true       ;
+                    curRange = [_.number] ;
                 }
             } else {
                 if (isValid) {
@@ -53,8 +53,8 @@ export class Block {
     }
 
     constructor(text: string, inputs: { [regEx: string]: string[] }, startLine: number, eol: vscode.EndOfLine) {
-        let splitString: string;
-        let ranges: Array<Range> = [];
+        let splitString : string            ;
+        let ranges      : Array<Range> = [] ;
 
         if (eol === vscode.EndOfLine.CRLF) {
             splitString = '\r\n';
@@ -64,9 +64,9 @@ export class Block {
 
         let textLines = text.split(splitString).map((_, idx) => {
             return {
-                number: startLine + idx,
-                parts: [],
-                original: _,
+                number   : startLine + idx ,
+                parts    : []              ,
+                original : _               ,
                 processed: false
             } as Line
         });
@@ -81,8 +81,8 @@ export class Block {
                 rg.map(lineNumber => textLines.filter(l => l.number === lineNumber)[0]).forEach(line => {
                     separators.forEach((inp, idx) => {
                         if (line.original.indexOf(inp) !== -1) {
-                            let tmpTab = line.original.split(inp);
-                            let shifted = tmpTab.shift() as string;
+                            let tmpTab  = line.original.split(inp) ;
+                            let shifted = tmpTab.shift() as string ;
                             if (shifted) {
                                 if (idx === 0) {
                                     while (shifted.endsWith(" ")) {
