@@ -6,8 +6,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     let lastInput: string;
 
-    let alignByRegex = vscode.commands.registerTextEditorCommand('align.by.regex', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, args: any[]) => {
-        let templates = vscode.workspace.getConfiguration().get('align.by.regex.templates') as { [key: string]: string[] };
+    let shadowAlign = vscode.commands.registerTextEditorCommand('shadow.align', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, args: any[]) => {
+        let templates = vscode.workspace.getConfiguration().get('shadow.align.templates') as { [key: string]: string[] };
         if (templates !== undefined) {
 
             let selection: vscode.Selection = textEditor.selection;
@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
         }
     });
-    context.subscriptions.push(alignByRegex);
+    context.subscriptions.push(shadowAlign);
 }
 
 // this method is called when your extension is deactivated

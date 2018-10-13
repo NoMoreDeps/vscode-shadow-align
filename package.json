@@ -2,13 +2,13 @@
     "name": "shadow-align",
     "displayName": "Shadow Align",
     "description": "Aligns selected lines of text by a regular expression.",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "icon": "images/icon.png",
     "publisher": "fskorzec",
     "license": "LICENSE.txt",
     "repository": {
         "type": "git",
-        "url": "https://github.com/janjoerke/vscode-align-by-regex.git"
+        "url": "https://github.com/fskorzec/vscode-shadow-align.git"
     },
     "engines": {
         "vscode": "^1.25.0"
@@ -50,8 +50,7 @@
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test",
-        "tst":"npm run compile && code-insiders --extensionDevelopmentPath=C:\\git\\vscode-shadow-align"
+        "debug":"npm run compile && code-insiders --extensionDevelopmentPath=C:\\git\\vscode-shadow-align"
     },
     "devDependencies": {
         "typescript": "^2.6.1",
