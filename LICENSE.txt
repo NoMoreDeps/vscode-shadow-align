@@ -1,4 +1,4 @@
-Copyright (c) 2018, Jan Jörke
+Francois SKORZEC 2018
 
 All rights reserved.
 

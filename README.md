@@ -12,8 +12,16 @@ You can setup multiple filters, then when formatting a selection, every filter w
 
 ## Examples
 
-Setting configuration sample: 
-![Settings overview](images/settings.gif)
+Setting configuration sample: <br />
+```json
+ "shadow.align.templates": {  
+    "import.*?{.*?}.*?from.*?;" : ["{","from",";"] ,
+    ".*?=[^>].*?;\\s*$"         : ["=", ";"]       ,
+    ".*?:.*?,\\s*$"             : [":", ","]       ,
+    ".*?:.*?;\\s*$"             : [":", ";"]       ,
+    "^\\s*?\\|.*"               : ["|","|","|","|","|","|","|","|","|"]
+  }
+```
 
 
 Formating based on several pattern.
@@ -31,6 +39,11 @@ This extension contributes the following settings:
 ```
 ## Release Notes
 
-### 1.0.0
+### 1.0.4
+Updated readme
 
+### 1.0.3
+Minor fixes
+
+### 1.0.0
 Initial release of shadow-align

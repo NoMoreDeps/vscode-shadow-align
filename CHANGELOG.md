@@ -1,5 +1,10 @@
 # Change Log
 
-## 1.0.0
+### 1.0.4
+Updated readme
 
-Initial release of shadow-align :-)
+### 1.0.3
+Minor fixes
+
+### 1.0.0
+Initial release of shadow-align
