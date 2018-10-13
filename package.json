@@ -1,0 +1,63 @@
+{
+    "name": "shadow-align",
+    "displayName": "Shadow Align",
+    "description": "Aligns selected lines of text by a regular expression.",
+    "version": "1.0.1",
+    "icon": "images/icon.png",
+    "publisher": "fskorzec",
+    "license": "LICENSE.txt",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/janjoerke/vscode-align-by-regex.git"
+    },
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "activationEvents": [
+        "onCommand:shadow.align"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "shadow.align",
+                "title": "Shadow Align"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "shadow.align",
+                "key": "alt+shift+a",
+                "when": "editorHasSelection"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Shadow Align",
+            "properties": {
+                "shadow.align.templates": {
+                    "type": "object",
+                    "description": "Stored RegEx templates."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test",
+        "tst":"npm run compile && code-insiders --extensionDevelopmentPath=C:\\git\\vscode-shadow-align"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
