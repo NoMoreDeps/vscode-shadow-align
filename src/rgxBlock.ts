@@ -96,34 +96,7 @@ export class RxgBlock {
                             line.parts.push(partValue.trim());
                         }
                     });
-                    /*separators.forEach((inp, idx) => {
-                        if (line.original.indexOf(inp) !== -1) {
-                            let tmpTab  = line.original.split(inp) ;
-                            let shifted = tmpTab.shift() as string ;
-                            if (shifted) {
-                                if (idx === 0) {
-                                    while (shifted.endsWith(" ")) {
-                                        shifted = shifted.substr(0, shifted.length - 1);
-                                    }
-                                    line.parts.push(shifted);
-                                } else {
-                                    line.parts.push(shifted.trim());
-                                }
-                                line.parts.push(inp);
-                                if (tmpTab.length == 1) {
-                                    line.original = tmpTab[0];
-                                } else {
-                                    line.original = tmpTab.join(inp);
-                                }
-                            }
-                        }
-                    });*/
-
-                    /*if (line.original.length > 0) {
-                        line.parts.push(line.original.trim());
-                    }*/
                 });
-
             });
         }
 
