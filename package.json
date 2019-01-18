@@ -1,14 +1,14 @@
 {
-    "name"        : "shadow-align"                                           ,
-    "displayName" : "Shadow Align"                                           ,
-    "description" : "Aligns selected lines of text by a regular expression." ,
-    "version"     : "1.0.4"                                                  ,
-    "icon"        : "images/icon.png"                                        ,
-    "publisher"   : "fskorzec"                                               ,
-    "license"     : "LICENSE.txt"                                            ,
+    "name": "shadow-align",
+    "displayName": "Shadow Align",
+    "description": "Aligns selected lines of text by a regular expression.",
+    "version": "1.0.5",
+    "icon": "images/icon.png",
+    "publisher": "fskorzec",
+    "license": "LICENSE.txt",
     "repository": {
-        "type" : "git"                                                       ,
-        "url"  : "https://github.com/fskorzec/vscode-shadow-align.git" 
+        "type": "git",
+        "url": "https://github.com/fskorzec/vscode-shadow-align.git"
     },
     "engines": {
         "vscode": "^1.25.0"
@@ -23,40 +23,48 @@
     "contributes": {
         "commands": [
             {
-                "command" : "shadow.align" ,
-                "title"   : "Shadow Align"
+                "command": "shadow.align",
+                "title": "Shadow Align"
             }
         ],
         "keybindings": [
             {
-                "command" : "shadow.align"       ,
-                "key"     : "alt+shift+a"        ,
-                "when"    : "editorHasSelection"
+                "command": "shadow.align",
+                "key": "alt+shift+a",
+                "when": "editorHasSelection"
             }
         ],
         "configuration": {
-            "type"  : "object"       ,
-            "title" : "Shadow Align" ,
+            "type": "object",
+            "title": "Shadow Align",
             "properties": {
                 "shadow.align.templates": {
-                    "type"        : "object"                  ,
-                    "description" : "Stored RegEx templates." 
+                    "type": "object",
+                    "description": "Stored RegEx templates, splitted by fixed chars."
+                },
+                "shadow.align.rgxTemplates": {
+                    "type": "object",
+                    "description": "Stored RegEx templates, splitted by groups in regular expression"
                 }
             }
         }
     },
     "scripts": {
-        "vscode       : prepublish": "npm run compile"                                                             ,
-        "compile"     : "tsc -p ./"                                                                                ,
-        "watch"       : "tsc -watch -p ./"                                                                         ,
-        "postinstall" : "node ./node_modules/vscode/bin/install"                                                   ,
-        "debug"       : "npm run compile && code-insiders --extensionDevelopmentPath=C:\\git\\vscode-shadow-align" 
+        "vscode       : prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "debug": "npm run compile && code-insiders --extensionDevelopmentPath=C:\\git\\vscode-shadow-align"
     },
     "devDependencies": {
-        "typescript"   : "^2.6.1"  ,
-        "vscode"       : "^1.1.6"  ,
-        "tslint"       : "^5.8.0"  ,
-        "@types/node"  : "^7.0.43" ,
-        "@types/mocha" : "^2.2.42" 
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "@types/xregexp": "^3.0.29",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "xregexp": "^4.2.4"
     }
 }
