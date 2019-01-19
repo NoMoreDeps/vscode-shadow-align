@@ -1,8 +1,8 @@
 {
     "name": "shadow-align",
     "displayName": "Shadow Align",
-    "description": "Aligns selected lines of text by a regular expression.",
-    "version": "1.0.5",
+    "description": "Aligns selected lines of text based on a regular expression.",
+    "version": "1.0.6",
     "icon": "images/icon.png",
     "publisher": "fskorzec",
     "license": "LICENSE.txt",

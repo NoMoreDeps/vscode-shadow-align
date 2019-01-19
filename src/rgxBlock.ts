@@ -83,10 +83,10 @@ export class RxgBlock {
                     let regEx = XRegExp(input);
                     let regExMatch = XRegExp.exec(line.original, regEx);
 
-                    separators.forEach((inp, idx) => {
+                    separators.forEach((_inp, idx) => {
+                        const inp = _inp.split("|")[0];
                         let partValue = ((regExMatch as any)[inp] as string);
                         partValue = partValue || "";
-                        console.log("partValue",partValue)
                         if (idx === 0) {
                             while (partValue.endsWith(" ")) {
                                 partValue = partValue.substr(0, partValue.length - 1);
@@ -118,7 +118,7 @@ export class RxgBlock {
 
                 textLines.filter(l => r.indexOf(l.number) !== -1).forEach(line => {
                     for (let i = 0; i < line.parts.length; i++) {
-                        line.parts[i] = extendToLength(line.parts[i], maxLength[i]);
+                        line.parts[i] = extendToLength(line.parts[i], maxLength[i], range.alignSpec[i]);
                     }
                 });
 
